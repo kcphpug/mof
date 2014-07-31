@@ -1,20 +1,18 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": ["microframework","rest","router"],
-    "homepage": "http://github.com/codeguy/Slim-Skeleton",
+    "name": "kcpug/mof",
+    "description": "MeetupOfFortune - Pulls meetup RSVP's to run contest giveaways",
     "license": "MIT",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "Dan Holmes",
+            "email": "daniel.holmes@gmail.com"
         }
     ],
     "require": {
         "php": ">=5.3.0",
         "monolog/monolog": "1.*",
         "slim/slim": "2.*",
+	"entomb/slim-json-api": "dev-master",
         "slim/views": "0.*",
         "twig/twig": "1.*"
     }
