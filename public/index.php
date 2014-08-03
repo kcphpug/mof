@@ -2,14 +2,17 @@
 require '../vendor/autoload.php';
 
 // Prepare app
-$app = new \Slim\Slim(array(
-    'templates.path' => '../templates',
-));
+$config = require '../config/main.php';
+$app = new \Slim\Slim($config);
+
+// Local (not in github) settings can go here
+@$configLocal = include '../config/local.php';
+if($configLocal) $app->config($configLocal);
 
 // Create monolog logger and store logger in container as singleton
 // (Singleton resources retrieve the same log resource definition each time)
 $app->container->singleton('log', function () {
-    $log = new \Monolog\Logger('slim-skeleton');
+    $log = new \Monolog\Logger('mof');
     $log->pushHandler(new \Monolog\Handler\StreamHandler('../logs/app.log', \Monolog\Logger::DEBUG));
     return $log;
 });
