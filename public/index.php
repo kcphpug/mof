@@ -1,12 +1,6 @@
 <?php
 require '../vendor/autoload.php';
 
-function ApiRequest(){
-    $app = \Slim\Slim::getInstance();
-    $app->view(new \JsonApiView());
-    $app->add(new \JsonApiMiddleware());
-}
-
 // Prepare app
 $app = new \Slim\Slim(array(
     'templates.path' => '../templates',
@@ -32,16 +26,8 @@ $app->view->parserOptions = array(
 $app->view->parserExtensions = array(new \Slim\Views\TwigExtension());
 
 // Define routes
-$app->get('/', function () use ($app) {
-    // Sample log message
-    $app->log->info("Slim-Skeleton '/' route");
-    // Render index view
-    $app->render('index.html');
-});
-
-$app->get('/api','ApiRequest', function() use ($app) {
-    $app->render(200,['msg'=>'welcome!']);
-});
+require('../library/routes/site.php');
+require('../library/routes/api.php');
 
 // Run app
 $app->run();
