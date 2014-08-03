@@ -1,12 +1,18 @@
 <?php
 require '../vendor/autoload.php';
 
+function ApiRequest(){
+    $app = \Slim\Slim::getInstance();
+    $app->view(new \JsonApiView());
+    $app->add(new \JsonApiMiddleware());
+}
+
 // Prepare app
 $app = new \Slim\Slim(array(
     'templates.path' => '../templates',
 ));
 
-// Create monolog logger and store logger in container as singleton 
+// Create monolog logger and store logger in container as singleton
 // (Singleton resources retrieve the same log resource definition each time)
 $app->container->singleton('log', function () {
     $log = new \Monolog\Logger('slim-skeleton');
@@ -33,5 +39,10 @@ $app->get('/', function () use ($app) {
     $app->render('index.html');
 });
 
+$app->get('/api','ApiRequest', function() use ($app) {
+    $app->render(200,['msg'=>'welcome!']);
+});
+
 // Run app
 $app->run();
+
