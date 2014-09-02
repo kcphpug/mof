@@ -1,0 +1,40 @@
+{% extends "_layout.html" %}
+{% block headcss %}
+        <link type="text/css" href="/css/wheel.css" />
+{% endblock %}
+{% block bodyjs %}
+        <script type="application/javascript"
+                src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+        <script type="application/javascript" src="/js/wheel.js"></script>
+{% endblock %}
+
+{% block content %}
+<h1 class="cover-heading">Cover your page.</h1>
+
+<div id="con" >
+    <!-- the div container is of course optional. It is used with
+         {width,height}="100%" below to make the chart resizable. -->
+    <svg width="300" height="300" id="wheel"
+         xmlns="http://www.w3.org/2000/svg" viewbox="0 0 400 400">
+    </svg>
+    <div class="pointer">&lt;</div>
+</div>
+
+<button id='spin'>spin</button>
+<dl>
+    <dt>Spin Power</dt>
+    <dd id="power"></dd>
+    <dt>Random push</dt>
+    <dd id="push"></dd>
+    <dt>Current Angle</dt>
+    <dd id="angle"></dd>
+    <dt>Wheel Angle</dt>
+    <dd id="angle-remainder"></dd>
+    <dt>Current Position</dt>
+    <dd id="currentpos"></dd>
+    <dt id="winnerlabel"></dt>
+    <dd id="winner"></dd>
+</dl>
+<ul style="display:none" id="segments"></ul>
+
+{% endblock %}

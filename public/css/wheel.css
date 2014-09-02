@@ -1,0 +1,17 @@
+#con {
+    resize:both;
+    overflow:hidden;
+    display:inline-block;
+    position:relative;
+    width:20em;
+    height:20em;
+    padding:0.5em;
+}
+path:hover {
+    opacity: 0.8;
+}
+.pointer {
+    position:absolute;
+    top:170px;
+    left:330px;
+}
