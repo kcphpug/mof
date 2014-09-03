@@ -21,7 +21,7 @@
 #rsvp-items td
 {
     vertical-align: middle;
-    font-size:22px
+    font-size:22px;
 }
 
 #winner-label
@@ -35,4 +35,33 @@
     writing-mode: lr-tb;
     float: right;
     margin-top: -100px
+}
+
+@media (min-width: 992px) {
+    .masthead,
+    .mastfoot,
+    .cover-container {
+        width: 900px;
+    }
+    #rsvp-items th
+    {
+        width:25%;
+        height:450px;
+        vertical-align: middle;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .masthead,
+    .mastfoot,
+    .cover-container {
+        width: 1000px;
+    }
+    #rsvp-items th
+    {
+        width:25%;
+        height:500px;
+        vertical-align: middle;
+    }
 }
