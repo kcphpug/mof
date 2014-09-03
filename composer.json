@@ -1,6 +1,6 @@
 {
     "name": "kcpug/mof",
-    "description": "MeetupOfFortune - Pulls meetup RSVP's to run contest giveaways",
+    "description": "MeetingOfFortune - Pulls meetup RSVP's to run contest giveaways",
     "license": "MIT",
     "authors": [
         {
