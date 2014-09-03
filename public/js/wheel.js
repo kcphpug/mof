@@ -1,6 +1,9 @@
 /**
  * Created by dholmes on 9/1/14.
  * See how it "evolved" on http://jsfiddle.net/19ue1o0v/30/
+ * Code adapted and grown from:
+ *  http://stackoverflow.com/questions/7261318/svg-chart-generation-in-javascript
+ *  http://stackoverflow.com/questions/15191058/css-rotation-cross-browser-with-jquery-animate
  */
 function getCurrentPos(angle,paths){
     var foundSegmentPos = -1;
@@ -64,7 +67,6 @@ function createWheel(svgdoc,segments){
         arcArray[i] = size;
     }
     drawArcs(svgdoc, arcArray); // here is the pie chart data
-
 }
 
 $.fn.animateRotate = function(endAngle, options, startAngle)
