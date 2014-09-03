@@ -71,8 +71,12 @@ function setup_wheel(rsvpContainer)
     createWheel(svgdoc,segmentCount);
     var $wheel = $(svgdoc);
     var $segments = $('path',$wheel);
+    /**
+     * @todo There MUST be a better way to do this.  Any takers?
+     */
     $('#spin-button').off();
     $('#spin-button').click( function() {
+
         $( "#winner-label" ).hide();
 
         var $spinButton = $(this);
@@ -118,5 +122,5 @@ function setup_wheel(rsvpContainer)
 $().ready(function(){
     $( "#winner-label" ).hide();
     $( "#wheel-pointer").hide();
-    fetch_meetings('#event-id','#control-container','upcoming');
+    fetch_meetings('#event-id','#control-container','past');
 });

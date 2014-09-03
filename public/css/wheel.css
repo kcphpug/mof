@@ -33,8 +33,9 @@
     -moz-transform: rotate(328deg);
     -o-transform: rotate(328deg);
     writing-mode: lr-tb;
-    float: right;
-    margin-top: -100px
+    position:absolute;
+    top:50%;
+    right:20%;
 }
 
 @media (min-width: 992px) {
