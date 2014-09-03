@@ -1,7 +1,9 @@
 {% extends "_layout.html" %}
+
 {% block head_css %}
 <link rel="stylesheet" type="text/css" href="/css/wheel.css" >
 {% endblock %}
+
 {% block body_js %}
 <script type="application/javascript"
         src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
@@ -10,19 +12,18 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="cover-heading">KC Pug Prize Wheel</h1>
 <div class="row"  style="margin-bottom:80px">
-<div class="col-md-10 col-md-offset-1">
-    <div class="row hidden well" id="control-container">
-        <div class="col-sm-8 col-sm-offset-1">
-            <select id="event-id" class="form-control"></select>
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row hidden well" id="control-container">
+            <div class="col-sm-8 col-sm-offset-1">
+                <select id="event-id" class="form-control"></select>
+            </div>
+            <div class="col-sm-2">
+                <button id='spin-button' class="btn btn-primary" disabled="disabled">Spin!</button>
+            </div>
         </div>
-        <div class="col-sm-2">
-            <button id='spin-button' class="btn btn-primary" disabled="disabled">Spin!</button>
-        </div>
+        <div id="spinner" class="spinner hidden"><img src="/img/ajax-loader.gif" /></div>
     </div>
-    <div class="spinner hidden"><img src="/img/ajax-loader.gif" /></div>
-</div>
 </div>
 
 <div class="row">
