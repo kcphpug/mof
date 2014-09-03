@@ -1,17 +1,38 @@
-#con {
-    resize:both;
-    overflow:hidden;
-    display:inline-block;
-    position:relative;
-    width:20em;
-    height:20em;
-    padding:0.5em;
-}
-path:hover {
-    opacity: 0.8;
-}
-.pointer {
+#wheel-container .pointer {
     position:absolute;
-    top:170px;
-    left:330px;
+    font-size:18px;
+    font-weight: bold;
+    top:46%;
+    left:98%;
+}
+
+#rsvp-items img
+{
+    width:85px
+}
+
+#rsvp-items th
+{
+    width:25%;
+    height:300px;
+    vertical-align: middle;
+}
+
+#rsvp-items td
+{
+    vertical-align: middle;
+    font-size:22px
+}
+
+#winner-label
+{
+    font-size: 6em;
+    color:darkred;
+    text-shadow: 4px 4px 2px #ffff00;
+    -webkit-transform: rotate(328deg);
+    -moz-transform: rotate(328deg);
+    -o-transform: rotate(328deg);
+    writing-mode: lr-tb;
+    float: right;
+    margin-top: -100px
 }

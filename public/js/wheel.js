@@ -54,8 +54,6 @@ function drawArcs(paper, pieData){
             d: d, fill: "hsl(" + c + ", 66%, 50%)"
         });
         paper.appendChild(arc);
-
-        $('#segments').append('<li>'+i+' - ' + startAngle + ' - ' + endAngle + '</li>');
     }
 }
 
@@ -117,45 +115,3 @@ $.fn.animateRotate = function(endAngle, options, startAngle)
 
     });
 };
-
-$().ready(function(){
-
-    var svgdoc = document.getElementById("wheel");
-    createWheel(svgdoc,15);
-    var $wheel = $(svgdoc);
-    var $segments = $('path',$wheel);
-    $('#spin').click( function() {
-
-        var $spinButton = $(this);
-        var random = Math.floor((Math.random()* $segments.length ));
-        var $randomPos = $('#item'+random,$wheel);
-        var minTimesAround = 10;
-        var power = ( Math.floor((Math.random() * 10)+1) );
-        var midpoint = ( $randomPos.data('startangle') + $randomPos.data('endangle') ) / 2
-        var finalAnglePos =  (power * 720) + (360 * minTimesAround) + midpoint;
-
-        $spinButton.prop('disabled',true);
-        $('#winnerlabel').text("Spinning....");
-        $('#winner').text("");
-        $('#push').text(midpoint);
-        $('#power').text(power );
-
-        $wheel.css('deg',0).stop().animateRotate(finalAnglePos, {
-            duration: 9000 + (3000 * power),
-            easing: 'easeOutQuart',
-            extraStep: function(now)
-            {
-                $('#angle').text(now);
-                var realAngle = 360-(now%360);
-                $('#angle-remainder').text(realAngle);
-                $wheel.data('current', getCurrentPos(realAngle,$segments) );
-            },
-            complete: function()
-            {
-                $('#winnerlabel').text('Winner!');
-                $('#winner').text($wheel.data('current')  );
-                $spinButton.prop('disabled',false);
-            }
-        });
-    });
-});

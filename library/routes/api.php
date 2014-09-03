@@ -57,8 +57,13 @@ $app->get('/api/rsvps','ApiRequest', function() use ($app) {
         'group_urlname' => $app->config('meetup.group.urlname')
     ]);
 
-    foreach($rsvpsRaw as $rsvp){
-        $rsvps[] = ['member'=>$rsvp['member'],'member_photo'=>$rsvp['member_photo']];
+    foreach($rsvpsRaw as $key => $rsvp){
+        if(is_array($rsvp)) {
+            if(isset($rsvp['member'])) $rsvps[$key]['member'] = $rsvp['member'];
+            if(isset($rsvp['member_photo'])) $rsvps[$key]['member_photo'] = $rsvp['member_photo'];
+        } else {
+            $rsvps[$key] = $rsvp;
+        }
     }
 
     $app->render(200,$rsvps);
