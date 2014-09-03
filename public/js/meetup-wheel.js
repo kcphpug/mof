@@ -19,11 +19,14 @@ function fetch_meetings(selectEvents,container,status)
                 fetch_rsvps('#rsvp-items',eventId);
             });
 
+            var eventId = $(selectEvents).val();
+            fetch_rsvps('#rsvp-items',eventId);
+
         });
 }
 function get_image_url_from_rsvp(rsvp)
 {
-    var url = "/img/profile.jpg";
+    var url = "/img/profile.png";
     if(typeof rsvp.member_photo != 'undefined'
         && typeof rsvp.member_photo.thumb_link != 'undefined'){
         url = rsvp.member_photo.thumb_link;
@@ -42,8 +45,10 @@ function get_first_name_from_rsvp(rsvp)
 function fetch_rsvps(container,eventId)
 {
     $(container).empty();
+    $('#spinner').removeClass('hidden');
     $.get('/api/rsvps',{event_id:eventId})
         .done(function(data){
+            $('#spinner').addClass('hidden');
             $.each(data,function(i,rsvp) {
                 if($.isNumeric(i) && typeof rsvp != 'undefined' ) {
                     var imageUrl = get_image_url_from_rsvp(rsvp);
@@ -114,6 +119,4 @@ $().ready(function(){
     $( "#winner-label" ).hide();
     $( "#wheel-pointer").hide();
     fetch_meetings('#event-id','#control-container','upcoming');
-    //fetch_meetings('#event-id','#control-container','past');
-
 });
