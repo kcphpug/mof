@@ -122,5 +122,5 @@ function setup_wheel(rsvpContainer)
 $().ready(function(){
     $( "#winner-label" ).hide();
     $( "#wheel-pointer").hide();
-    fetch_meetings('#event-id','#control-container','past');
+    fetch_meetings('#event-id','#control-container','');
 });
