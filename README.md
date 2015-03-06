@@ -33,4 +33,5 @@ DO NOT check in your new local.php file.
 # Run!
 
 > cd public
+
 > php -S localhost:9999
