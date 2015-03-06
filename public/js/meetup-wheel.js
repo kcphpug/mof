@@ -7,15 +7,15 @@ function fetch_meetings(selectEvents,container,status)
             console.dir(data);
 
             $.each(data,function(i,event) {
-
                 var meetingDate = new Date();
-                meetingDate.setTime((event.time  )* 1000 );
+                meetingDate.setTime((event.time) );
+
 
                 if($.isNumeric(i))
                     $(selectEvents).append(
                         $("<option>")
                             .val(event.id)
-                            .text(event.name + ' ' + meetingDate.toString())
+                            .text(moment(meetingDate).format('llll') + ' - ' + event.name + " (" + event['yes_rsvp_count'] + ')')
                     )
             });
             $(container).removeClass('hidden');
