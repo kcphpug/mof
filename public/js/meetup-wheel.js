@@ -4,12 +4,18 @@ function fetch_meetings(selectEvents,container,status)
     $.get('/api/events',{status:status})
         .done(function(data){
             $('#spinner').addClass('hidden');
+            console.dir(data);
+
             $.each(data,function(i,event) {
+
+                var meetingDate = new Date();
+                meetingDate.setTime((event.time  )* 1000 );
+
                 if($.isNumeric(i))
                     $(selectEvents).append(
                         $("<option>")
                             .val(event.id)
-                            .text(event.name)
+                            .text(event.name + ' ' + meetingDate.toString())
                     )
             });
             $(container).removeClass('hidden');
