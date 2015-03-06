@@ -1,0 +1,27 @@
+{
+  "name": "mof",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dholmes/mof",
+  "authors": [
+    "Daniel Holmes <daniel.holmes@gmail.com>"
+  ],
+  "description": "Meeting of Fortune! A meetup-api driven prize wheel for user groups",
+  "main": "public/index.php",
+  "directory": "public/libs/",
+  "componentsDirectory": "public/libs/",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.3.2",
+    "momentjs": "~2.9.0"
+  }
+}
